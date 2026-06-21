@@ -1,0 +1,1376 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ulang Tahun Mamak</title>
+
+<style>
+
+*{
+box-sizing:border-box;
+}
+
+body{
+margin:0;
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+font-family:Arial, sans-serif;
+text-align:center;
+overflow:hidden;
+background:linear-gradient(-45deg,#ff9a9e,#fad0c4,#ffd1ff,#ffb6c1);
+background-size:400% 400%;
+animation:bg 10s infinite;
+}
+
+
+@keyframes bg{
+0%{background-position:0% 50%}
+50%{background-position:100% 50%}
+100%{background-position:0% 50%}
+}
+
+
+
+.halaman{
+display:none;
+width:100%;
+padding:20px;
+}
+
+
+.aktif{
+display:block;
+animation:masuk .8s;
+}
+
+
+.card{
+
+width:100%;
+max-width:380px;
+max-height:90vh;
+
+background:rgba(255,255,255,.95);
+
+padding:25px;
+
+border-radius:30px;
+
+box-shadow:
+0 0 25px rgba(255,0,120,.3),
+0 15px 40px rgba(0,0,0,.2);
+
+overflow:auto;
+
+}
+
+
+
+@keyframes masuk{
+
+from{
+opacity:0;
+transform:scale(.8) translateY(40px);
+}
+
+to{
+opacity:1;
+transform:scale(1) translateY(0);
+}
+
+}
+
+
+
+h1{
+
+color:#ff1493;
+font-size:24px;
+
+}
+
+
+
+button{
+
+width:90%;
+
+background:linear-gradient(45deg,#ff4d88,#ff1493);
+
+color:white;
+
+border:none;
+
+padding:14px;
+
+border-radius:50px;
+
+font-size:18px;
+
+cursor:pointer;
+
+box-shadow:0 5px 15px #ff8ab8;
+
+transition:.3s;
+
+}
+
+
+button:hover{
+
+transform:scale(1.08);
+
+}
+
+
+
+
+/* GALERI */
+
+.galeri{
+
+display:flex;
+
+gap:15px;
+
+overflow-x:auto;
+
+scroll-snap-type:x mandatory;
+
+}
+
+
+.galeri img{
+
+flex-shrink:0;
+
+width:260px;
+
+height:330px;
+
+object-fit:cover;
+
+border-radius:25px;
+
+scroll-snap-align:center;
+
+box-shadow:0 10px 25px rgba(0,0,0,.2);
+
+}
+
+
+
+/* HATI */
+
+.hati{
+
+position:absolute;
+
+font-size:35px;
+
+animation:hati 7s infinite;
+
+opacity:.7;
+
+}
+
+
+@keyframes hati{
+
+from{
+
+transform:translateY(100vh) rotate(0);
+
+}
+
+to{
+
+transform:translateY(-120vh) rotate(360deg);
+
+}
+
+}
+
+
+
+/* BALON */
+
+.balon{
+
+position:absolute;
+
+font-size:55px;
+
+animation:balon 8s infinite;
+
+}
+
+
+
+@keyframes balon{
+
+from{
+
+bottom:-100px;
+
+}
+
+to{
+
+bottom:110vh;
+
+}
+
+}
+
+
+
+
+#ketik{
+
+font-size:18px;
+
+line-height:1.6;
+
+min-height:120px;
+
+}
+
+
+
+
+.confetti{
+
+position:absolute;
+
+width:12px;
+
+height:12px;
+
+top:-20px;
+
+animation:jatuh 3s linear;
+
+}
+
+
+@keyframes jatuh{
+
+to{
+
+transform:translateY(110vh) rotate(720deg);
+
+}
+
+}
+
+
+
+
+@media(max-width:400px){
+
+h1{
+
+font-size:20px;
+
+}
+
+
+.card{
+
+padding:20px;
+
+}
+
+
+.galeri img{
+
+width:220px;
+
+height:280px;
+
+}
+
+}
+
+.layout{
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+gap:30px;
+
+}
+
+
+.hiasan{
+
+width:250px;
+
+background:rgba(255,255,255,.7);
+
+padding:25px;
+
+border-radius:30px;
+
+box-shadow:0 10px 30px rgba(0,0,0,.15);
+
+animation:melayang 3s infinite;
+
+}
+
+
+.hiasan h1{
+
+font-size:70px;
+
+margin:0;
+
+}
+
+
+.kotak{
+
+margin-top:20px;
+
+font-size:18px;
+
+line-height:1.6;
+
+}
+
+
+
+@keyframes melayang{
+
+50%{
+
+transform:translateY(-15px);
+
+}
+
+}
+
+
+
+@media(max-width:700px){
+
+.layout{
+
+flex-direction:column;
+
+}
+
+
+.hiasan{
+
+width:80%;
+
+}
+
+}
+
+/* AWAN BERJALAN */
+
+.awanTombol{
+
+position:absolute;
+
+top:70px;
+
+left:100%;
+
+font-size:65px;
+
+z-index:5;
+
+animation:awanJalan 18s linear infinite;
+
+cursor:pointer;
+
+}
+
+
+.awanTombol button{
+
+position:absolute;
+
+top:25px;
+
+left:50%;
+
+transform:translateX(-50%);
+
+width:80px;
+
+padding:8px;
+
+font-size:14px;
+
+border-radius:20px;
+
+}
+
+
+@keyframes awanJalan{
+
+from{
+
+left:100%;
+
+}
+
+
+to{
+
+left:-180px;
+
+}
+
+}
+
+
+
+/* awan hias */
+
+/* AWAN DENGAN TOMBOL */
+
+.awanTombol{
+
+position:absolute;
+
+top:70px;
+
+left:100%;
+
+font-size:60px;
+
+z-index:5;
+
+animation:
+munculAwan 10s linear infinite,
+jalanAwan 18s linear 10s infinite;
+
+}
+
+
+.awanTombol button{
+
+position:absolute;
+
+top:22px;
+
+left:50%;
+
+transform:translateX(-50%);
+
+width:55px;
+
+padding:5px;
+
+font-size:11px;
+
+border-radius:15px;
+
+}
+
+
+
+/* tunggu 10 detik */
+
+@keyframes munculAwan{
+
+0%,55%{
+
+left:100%;
+
+}
+
+
+100%{
+
+left:100%;
+
+}
+
+}
+
+
+
+/* jalan kanan kiri */
+
+@keyframes jalanAwan{
+
+from{
+
+left:100%;
+
+}
+
+
+to{
+
+left:-150px;
+
+}
+
+}
+
+
+
+/* awan hias biasa */
+
+.awan{
+
+position:absolute;
+
+top:40px;
+
+font-size:55px;
+
+left:100%;
+
+animation:awanLewat 25s linear infinite;
+
+}
+
+
+
+.awan2{
+
+top:140px;
+
+animation-delay:7s;
+
+}
+
+
+
+@keyframes awanLewat{
+
+from{
+
+left:100%;
+
+}
+
+
+to{
+
+left:-150px;
+
+}
+
+}
+
+.memory{
+display:flex;
+justify-content:center;
+align-items:center;
+gap:25px;
+}
+
+
+.kenanganBox{
+
+width:300px;
+
+background:rgba(255,255,255,.9);
+
+padding:25px;
+
+border-radius:30px;
+
+box-shadow:0 10px 30px rgba(0,0,0,.2);
+
+font-size:17px;
+
+line-height:1.6;
+
+}
+
+
+
+.kenanganBox h1{
+
+color:#ff1493;
+
+}
+
+
+@media(max-width:700px){
+
+.memory{
+
+flex-direction:column;
+
+}
+
+
+.kenanganBox{
+
+width:90%;
+
+}
+
+}
+
+.memory{
+display:flex;
+justify-content:center;
+align-items:center;
+gap:25px;
+}
+
+
+.kenanganBox{
+
+width:300px;
+
+background:white;
+
+padding:25px;
+
+border-radius:30px;
+
+box-shadow:0 10px 30px rgba(0,0,0,.2);
+
+font-size:17px;
+
+line-height:1.6;
+
+}
+
+
+
+.kenanganBox h1{
+
+color:#ff1493;
+
+}
+
+
+
+@media(max-width:700px){
+
+.memory{
+
+flex-direction:column;
+
+}
+
+
+.kenanganBox{
+
+width:90%;
+
+}
+
+}
+
+/* LOVE SAAT TOMBOL AWAL DITEKAN */
+
+.lovePop{
+
+position:absolute;
+
+bottom:-80px;
+
+pointer-events:none;
+
+z-index:99;
+
+animation:naikLove 5s ease-out forwards;
+
+}
+
+
+@keyframes naikLove{
+
+
+0%{
+
+transform:translateY(0) scale(.5);
+
+opacity:0;
+
+}
+
+
+15%{
+
+opacity:1;
+
+}
+
+
+80%{
+
+opacity:1;
+
+}
+
+
+100%{
+
+transform:translateY(-110vh) scale(1.2);
+
+opacity:0;
+
+}
+
+}
+
+
+@keyframes naikLove{
+
+0%{
+transform:translateY(0) scale(.5);
+opacity:0;
+}
+
+20%{
+opacity:1;
+transform:translateY(-100px) scale(1);
+}
+
+100%{
+transform:translateY(-100vh) scale(1.5);
+opacity:0;
+}
+
+}
+
+
+</style>
+
+</head>
+
+
+<body>
+
+<audio id="musik" loop>
+<source src="musik.mp3" type="audio/mpeg">
+</audio>
+
+<div class="awan">☁️</div>
+
+<div class="awan awan2">☁️</div>
+
+
+<div class="awanTombol" onclick="hadiah()">
+
+☁️
+
+<button>
+TEKAN
+</button>
+
+</div>
+
+
+<!-- ANIMASI -->
+
+<div class="hati" style="left:10%">❤️</div>
+<div class="hati" style="left:50%">💗</div>
+<div class="hati" style="left:80%">💕</div>
+
+
+<div class="balon" style="left:20%">🎈</div>
+<div class="balon" style="left:70%">🎈</div>
+
+
+
+
+<!-- HALAMAN AWAL -->
+
+
+<div id="awal" class="halaman aktif">
+
+<div class="card">
+
+<h1>💗 TEKAN 💗</h1>
+
+<button onclick="ucapan(); loveKeluar(); mulaiMusik();">
+TEKAN
+</button>
+
+
+</div>
+
+</div>
+
+
+
+
+
+<!-- UCAPAN -->
+
+
+<div id="ucap" class="halaman">
+
+
+<div class="card muncul">
+
+
+<h1>
+🎉 SELAMAT ULANG TAHUN MAMAK 🎂❤️
+</h1>
+
+
+<p id="ketik"></p>
+
+
+
+<button id="lanjut" 
+style="display:none"
+onclick="menu()">
+
+TEKAN
+
+</button>
+
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+<!-- MENU FOTO -->
+
+
+<div id="menu" class="halaman">
+
+<div class="layout">
+
+<div class="card">
+
+<h1>📸 PILIH FOTO</h1>
+
+<button onclick="ricko()">
+FOTO RICKO
+</button>
+
+<br><br>
+
+<button onclick="briyan()">
+FOTO BRIYAN
+</button>
+
+<br><br>
+
+<button onclick="pesan()">
+💌 PESAN TERAKHIR
+</button>
+
+</div>
+
+
+<div class="hiasan">
+
+<h1>❤️</h1>
+
+<p>
+Untuk Mamak tersayang 🎂
+</p>
+
+<div class="kotak">
+🌸<br>
+Semoga Mamak Sehat Selalu<br>
+dan bahagia ❤️
+</div>
+
+
+<br>
+
+<button onclick="awal()">
+⬅ KEMBALI
+</button>
+
+
+</div>
+
+
+</div>
+
+</div>
+
+
+
+
+
+
+
+<!-- FOTO RICKO -->
+
+
+<div id="ricko" class="halaman">
+
+<div class="memory">
+
+
+<div class="card">
+
+<h1>📷 FOTO RICKO</h1>
+
+
+<div class="galeri">
+
+<img src="ricko1.jpg">
+
+<img src="ricko2.jpg">
+
+<img src="ricko3.jpg">
+
+</div>
+
+
+<br>
+
+<button onclick="menu()">
+⬅ KEMBALI
+</button>
+
+
+</div>
+
+
+
+<div class="kenanganBox">
+
+<h1>💗 KENANGAN</h1>
+
+
+<p>
+Foto ini adalah sebagian kecil dari
+cerita  kami disini ❤️
+</p>
+
+
+<p>
+Terima kasih Mamak sudah
+selalu sayang dan menjaga kami 🌸
+</p>
+
+
+</div>
+
+
+</div>
+
+</div>
+
+
+<!-- FOTO BRIYAN -->
+
+
+<div id="briyan" class="halaman">
+
+
+<div class="memory">
+
+
+<div class="card">
+
+
+<h1>📷 FOTO BRIYAN</h1>
+
+
+<div class="galeri">
+
+
+<img src="briyan1.jpg">
+
+<img src="briyan2.jpg">
+
+<img src="briyan3.jpg">
+
+
+</div>
+
+
+<br>
+
+
+<button onclick="menu()">
+
+⬅ KEMBALI
+
+</button>
+
+
+</div>
+
+
+
+
+<div class="kenanganBox">
+
+
+<h1>💗 KENANGAN</h1>
+
+
+<p>
+Foto ini adalah sebagian kecil dari
+cerita  kami disini ❤️
+</p>
+
+
+<p>
+Terima kasih Mamak sudah
+selalu sayang dan menjaga kami 🌸
+</p>
+
+
+</div>
+
+
+
+</div>
+
+
+</div>
+
+
+
+
+<!-- PESAN TERAKHIR -->
+
+<div id="pesan" class="halaman">
+
+<div class="card">
+
+<h1>
+💌 Pesan Terakhir Untuk Mamak ❤️
+</h1>
+
+
+<p>
+
+Mak, terima kasih sudah selalu ada.
+<br><br>
+
+Semoga Mamak sehat selalu,
+panjang umur,
+dan selalu bahagia.
+Setiap doa, perjuangan, dan pengorbanan,   Mamak adalah hal yang sangat berarti bagi kami,
+<br><br>
+Selamat ulang tahun Mamak ❤️🎂
+<br><br>
+
+Kami sayang Mamak ❤️
+
+</p>
+
+
+<button onclick="menu()">
+
+⬅ KEMBALI
+
+</button>
+
+
+</div>
+
+</div>
+
+<script>
+
+function mulaiMusik(){
+
+let musik = document.getElementById("musik");
+
+musik.play();
+
+}
+
+
+function pindah(id){
+
+document.querySelectorAll(".halaman")
+.forEach(x=>x.classList.remove("aktif"));
+
+
+document.getElementById(id)
+.classList.add("aktif");
+
+}
+
+
+
+
+function ucapan(){
+
+pindah("ucap");
+
+confetti();
+
+
+document.getElementById("ketik").innerHTML="";
+
+document.getElementById("lanjut").style.display="none";
+
+
+let teks =
+"🌸 Sehat selalu dan panjang umur mak 🌸\n\nSemoga mamak selalu sehat dan bahagia,\ndan semua doa mamak cepat terkabul Amin ❤️";
+
+
+let i=0;
+
+
+function ketik(){
+
+if(i < teks.length){
+
+document.getElementById("ketik").innerHTML += teks.charAt(i);
+
+i++;
+
+setTimeout(ketik,50);
+
+}
+
+}
+
+
+ketik();
+
+
+setTimeout(()=>{
+
+document.getElementById("lanjut")
+.style.display="inline-block";
+
+},6000);
+
+
+}
+
+
+
+
+function menu(){
+
+pindah("menu");
+
+}
+
+
+
+function ricko(){
+
+pindah("ricko");
+
+}
+
+
+
+function briyan(){
+
+pindah("briyan");
+
+}
+
+function pesan(){
+
+pindah("pesan");
+
+}
+
+
+
+function confetti(){
+
+for(let i=0;i<80;i++){
+
+let c=document.createElement("div");
+
+c.className="confetti";
+
+c.style.left=Math.random()*100+"%";
+
+let warna=[
+"#ff4d88",
+"#ffd700",
+"#00d4ff",
+"#7cff00",
+"#ff69b4"
+];
+
+c.style.background=
+warna[Math.floor(Math.random()*warna.length)];
+
+c.style.animationDelay=
+Math.random()*2+"s";
+
+document.body.appendChild(c);
+
+setTimeout(()=>{
+
+c.remove();
+
+},4000);
+
+}
+
+}
+
+document.querySelectorAll("button").forEach(btn=>{
+
+btn.addEventListener("click",()=>{
+
+btn.style.transform="scale(.9)";
+
+setTimeout(()=>{
+
+btn.style.transform="";
+
+},150);
+
+});
+
+});
+
+
+function awal(){
+
+pindah("awal");
+
+document.getElementById("ketik").innerHTML="";
+
+}
+
+function hadiah(){
+
+pindah("hadiah");
+
+}
+
+function loveKeluar(){
+
+let waktu = setInterval(()=>{
+
+
+for(let i=0;i<5;i++){
+
+
+let love=document.createElement("div");
+
+
+love.className="lovePop";
+
+
+let isi=[
+"❤️",
+"💗",
+"💕",
+"💖",
+"💘"
+];
+
+
+love.innerHTML =
+isi[Math.floor(Math.random()*isi.length)];
+
+
+// posisi random
+
+love.style.left =
+Math.random()*100+"%";
+
+
+// ukuran campur besar kecil
+
+let ukuran =
+Math.random()*55+30;
+
+
+love.style.fontSize =
+ukuran+"px";
+
+
+// arah gerak beda sedikit
+
+love.style.animationDuration =
+(4+Math.random()*2)+"s";
+
+
+document.body.appendChild(love);
+
+
+setTimeout(()=>{
+
+love.remove();
+
+},6000);
+
+
+}
+
+
+},200);
+
+
+// berhenti keluar setelah 3 detik
+
+setTimeout(()=>{
+
+clearInterval(waktu);
+
+},3000);
+
+
+}
+
+</script>
+
+<!-- HALAMAN HADIAH -->
+
+<div id="hadiah" class="halaman">
+
+<div class="card">
+
+<h1>
+🎁 HADIAH UNTUK MAMAK ❤️
+</h1>
+
+
+<img src="hadiah.jpg" 
+style="
+width:280px;
+height:350px;
+object-fit:cover;
+border-radius:25px;
+">
+
+
+<p>
+Semoga Mamak suka hadiah ini ❤️
+</p>
+
+
+<button onclick="menu()">
+⬅ KEMBALI
+</button>
+
+
+</div>
+
+</div>
+
+</body>
+</html>
