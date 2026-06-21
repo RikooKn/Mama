@@ -1094,10 +1094,13 @@ function mulaiMusik(){
 
 let musik = document.getElementById("musik");
 
+musik.volume = 0.3; // atur volume di sini
+
+musik.loop = true; // musik ulang terus
+
 musik.play();
 
 }
-
 
 function pindah(id){
 
@@ -1265,7 +1268,7 @@ function loveKeluar(){
 let waktu = setInterval(()=>{
 
 
-for(let i=0;i<5;i++){
+for(let i=0;i<1;i++){
 
 
 let love=document.createElement("div");
@@ -1322,7 +1325,7 @@ love.remove();
 }
 
 
-},200);
+},500);
 
 
 // berhenti keluar setelah 3 detik
